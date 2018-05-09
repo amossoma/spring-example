@@ -6,6 +6,7 @@ Examples for REST controller and MVC controller
 
 ## Run with building
 ./gradlew build
+
 java -jar build/libs/spring-example-0.1.0.jar
 
 ## Urls for testing
