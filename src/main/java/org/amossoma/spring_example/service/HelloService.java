@@ -1,9 +1,10 @@
 package org.amossoma.spring_example.service;
 
 import org.amossoma.spring_example.model.Hello;
+import reactor.core.publisher.Mono;
 
 public interface HelloService {
 
-    Hello hello(String name);
+    Mono<Hello> hello(String name);
 
 }

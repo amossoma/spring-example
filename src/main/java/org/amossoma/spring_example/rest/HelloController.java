@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class HelloController {
@@ -18,8 +19,8 @@ public class HelloController {
     }
 
     @RequestMapping("/hello")
-    public HelloResponse hello(@RequestParam(value="name", defaultValue="World") String name) {
-        return new HelloResponse(helloService.hello(name));
+    public Mono<HelloResponse> hello(@RequestParam(value="name", defaultValue="World") String name) {
+        return helloService.hello(name).map(HelloResponse::new);
     }
 
 }
